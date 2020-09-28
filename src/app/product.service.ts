@@ -17,23 +17,23 @@ export class ProductService {
     return this.productsCollection.valueChanges();
   }
 
-  addProduct(p: Product) {
+  public addProduct(p: Product): any {
     p.id = this.afs.createId();
     return this.productsCollection.doc(p.id).set(p);
-    //return this.productsCollection.add(p);
+    // return this.productsCollection.add(p);
   }
 
-  deleteProduct(p: Product) {
+  public deleteProduct(p: Product): any {
     return this.productsCollection.doc(p.id).delete();
   }
 
-  updateProduct(p: Product) {
+  public updateProduct(p: Product): any {
     return this.productsCollection.doc(p.id).set(p);
   }
 
-  searchByName(name: string): Observable<Product[]> {
-    return this.afs.collection<Product>('products', 
-           ref => ref.orderBy('name').startAt(name).endAt(name+"\uf8ff"))
+  public searchByName(name: string): Observable<Product[]> {
+    return this.afs.collection<Product>('products',
+           ref => ref.orderBy('name').startAt(name).endAt(name + '\uf8ff'))
            .valueChanges();
   }
 

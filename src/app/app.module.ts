@@ -10,8 +10,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/environments/environment';
 import { ProductsComponent } from './products/products.component';
+import { ClientComponent } from './client/client.component';
 
 import { ProductService } from './product.service';
+import { ClientService } from './client.service';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -25,7 +27,8 @@ import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent
+    ProductsComponent,
+    ClientComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatSnackBarModule,
     MatIconModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, ClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
